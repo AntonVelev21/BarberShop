@@ -59,7 +59,7 @@ ROOT_URLCONF = 'barber_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'barber_shop.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "barber_shop_db",
+        "NAME": "barber_web_db",
         "USER": "postgres",
         "PASSWORD": "toncho2003",
         "HOST": "127.0.0.1",
