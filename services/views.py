@@ -20,3 +20,23 @@ def edit_barber(request: HttpRequest, slug: str) -> HTTPResponse:
 
 def delete_barber(request: HttpRequest, slug: str) -> HTTPResponse:
     ...
+
+
+def list_services(request: HttpRequest) -> HTTPResponse:
+    ...
+
+
+def service_details(request: HttpRequest, slug: str) -> HTTPResponse:
+    ...
+
+
+def add_service(request: HttpRequest) -> HTTPResponse:
+    ...
+
+
+def edit_service(request: HttpRequest, slug: str) -> HTTPResponse:
+    ...
+
+
+def delete_service(request: HttpRequest, slug: str) -> HTTPResponse:
+    ...

@@ -4,5 +4,8 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 
 def index(request: HttpRequest) -> HttpResponse:
-    pass
+    ...
 
+
+def about(request: HttpRequest) -> HttpResponse:
+    ...
