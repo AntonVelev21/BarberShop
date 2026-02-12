@@ -1,0 +1,24 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg py-3">
+        <div class="container">
+            <a href="{% url 'home-page' %}" class="navbar-brand text-warning fw-bolder text-uppercase lh-1" style="letter-spacing: 2px;">
+                <span class="fs-4">✂️ Barber Shop</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navBarMain">
+                <nav class="navbar-nav ms-auto align-items-center gap-lg-4">
+
+                    <a href="{% url 'services:list-barbers' %}" class="nav-link text-white text-uppercase fw-semibold px-2">Barbers</a>
+                    <a href="{% url 'services:list-services' %}" class="nav-link text-white text-uppercase fw-semibold px-2">Services</a>
+
+                    <a href="{% url 'bookings:create' %}" class="btn btn-warning fw-bold text-uppercase rounded-0 px-4 py-2 ms-lg-2">
+                        Book haircut
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </header>
