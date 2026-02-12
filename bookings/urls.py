@@ -1,9 +1,15 @@
-from django.urls.conf import path
+from django.urls.conf import path, include
 
-from bookings.views import list_bookings
+from bookings.views import list_bookings, create_booking, booking_details, edit_booking, delete_booking
 
 app_name = 'bookings'
 
 urlpatterns = [
-    path('bookings/', list_bookings, name='list-bookings')
+    path('', list_bookings, name='list'),
+    path('create/', create_booking, name='create'),
+    path('<int:pk>/', include([
+        path('', booking_details, name='details'),
+        path('edit/', edit_booking, name='edit'),
+        path('delete/', delete_booking, name='delete')
+    ]))
 ]

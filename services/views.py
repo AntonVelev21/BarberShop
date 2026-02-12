@@ -10,7 +10,7 @@ def barber_details(request: HttpRequest, slug: str) -> HTTPResponse:
     ...
 
 
-def add_barber(request: HttpRequest) -> HTTPResponse:
+def create_barber(request: HttpRequest) -> HTTPResponse:
     ...
 
 
@@ -30,7 +30,7 @@ def service_details(request: HttpRequest, slug: str) -> HTTPResponse:
     ...
 
 
-def add_service(request: HttpRequest) -> HTTPResponse:
+def create_service(request: HttpRequest) -> HTTPResponse:
     ...
 
 
