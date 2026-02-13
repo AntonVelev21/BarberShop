@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container py-5" style="min-height: 80vh;">
+
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold text-uppercase text-white">
+            Services
+        </h1>
+        <div class="bg-warning mx-auto mt-3" style="height: 2px; width: 60px;"></div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+
+        {% for service in services %}
+            <div class="col">
+                <div class="card h-100 border-0 rounded-0 text-white shadow"
+                     style="
+                        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0) 100%),
+                                    url('{% if service.image_url %}{{ service.image_url }}{% else %}https://via.placeholder.com/500x500/261C19/FFFFFF?text=No+Image{% endif %}');
+                        background-size: cover;
+                        background-position: center;
+                        min-height: 400px;">
+
+                    <div class="card-body p-4 d-flex flex-column justify-content-end text-center">
+
+                        <h5 class="card-title text-uppercase fw-bold mb-1">
+                            {{ service.name }}
+                        </h5>
+
+                        <div class="mb-3">
+                            <span class="fs-3 fw-bold text-warning">
+                                ${{ service.price }}
+                            </span>
+                        </div>
+
+                        <div class="d-grid px-5"> <a href="{% url 'services:service-details' service.slug %}"
+                               class="btn btn-sm btn-outline-light rounded-0 fw-bold text-uppercase py-2">
+                                Details
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center py-5">
+                <h3 class="text-white-50">No services available.</h3>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

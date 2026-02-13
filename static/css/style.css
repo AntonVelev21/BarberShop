@@ -1,0 +1,97 @@
+body {
+    background: linear-gradient(rgba(45, 30, 22, 0.8), rgba(45, 30, 22, 0.8)),
+                url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop');
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #f4ece1;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+main {
+    background: transparent !important;
+}
+
+.card {
+    background-color: #4e3b2e !important;
+    border: 1px solid #5d4a3d !important;
+    color: #ffffff !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+    border-color: #ffc107 !important;
+}
+
+h1, h2, h3, .text-warning {
+    color: #ffc107 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+.staff-toggle-btn {
+    font-size: 0.8rem !important;
+    letter-spacing: 1px;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    padding: 6px 12px !important;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.staff-toggle-btn:hover {
+    color: #fff !important;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+
+.custom-staff-dropdown {
+    background-color: #212529;
+    border: 1px solid #dc3545 !important;
+    border-radius: 0;
+    padding: 10px 0;
+    margin-top: 10px !important;
+}
+
+
+.custom-staff-dropdown .dropdown-header {
+    color: #dc3545;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 10px 20px 5px;
+}
+
+.custom-staff-dropdown .dropdown-item {
+    color: #cccccc;
+    padding: 8px 20px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.custom-staff-dropdown .dropdown-item:hover {
+    background-color: #2c3034;
+    color: #dc3545;
+    padding-left: 25px;
+}
+
+.text-success-bright {
+    color: #2ecc71 !important;
+}
+
+.text-success-bright:hover {
+    color: #fff !important;
+    background-color: #27ae60 !important;
+}
+
+.custom-staff-dropdown .dropdown-divider {
+    border-top: 1px solid rgba(220, 53, 69, 0.2);
+    margin: 8px 0;
+}

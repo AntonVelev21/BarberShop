@@ -8,6 +8,7 @@ class Service(models.Model):
     duration = models.IntegerField(help_text="Duration in minutes")
     description = models.TextField()
     slug = models.SlugField(max_length=50, unique=True, blank=True)
+    image_url = models.URLField()
 
     def save(self, *args, **kwargs):
         if not self.slug:

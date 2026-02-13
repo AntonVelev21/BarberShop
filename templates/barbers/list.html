@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <p class="text-warning text-uppercase small mb-2" style="letter-spacing: 1px;">The Crew</p>
+        <h1 class="display-3 fw-bold text-uppercase text-white">
+            Meet Our Team
+        </h1>
+        <div class="bg-warning mx-auto mt-3" style="height: 2px; width: 60px; opacity: 0.8;"></div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+
+        {% for barber in barbers %}
+            <div class="col">
+                <div class="card h-100 border-0 shadow-lg rounded-0" style="background-color: #261C19;">
+
+                    <div style="height: 350px; overflow: hidden;">
+                        {% if barber.image_url %}
+                            <img src="{{ barber.image_url }}"
+                                 class="card-img-top h-100 w-100 object-fit-cover"
+                                 style="object-position: top center;"
+                                 alt="{{ barber.first_name }}">
+                        {% else %}
+                            <div class="d-flex align-items-center justify-content-center h-100 bg-secondary">
+                                <span class="text-white display-1">✂️</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="card-body text-center p-4 d-flex flex-column text-white">
+
+                        <h3 class="card-title text-uppercase fw-bold mb-1">
+                            {{ barber.first_name }} {{ barber.last_name }}
+                        </h3>
+
+                        <p class="text-warning small text-uppercase mb-3">Master Barber</p>
+
+                        <p class="card-text text-white-50 mb-4 flex-grow-1">
+                            {{ barber.bio|default:"Professional barber at Blade & Gold."|truncatechars:100 }}
+                        </p>
+
+                        <div class="d-grid">
+                            <a href="{% url 'services:barber-details' barber.slug %}"
+                               class="btn btn-outline-warning rounded-0 text-uppercase fw-bold py-2">
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center py-5">
+                <h3 class="text-white-50">No barbers found just yet.</h3>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
