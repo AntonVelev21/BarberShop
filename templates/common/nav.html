@@ -28,13 +28,21 @@
 
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg custom-staff-dropdown">
                         <li><h6 class="dropdown-header">Barbers Management</h6></li>
-                        <li><a class="dropdown-item" href="{% url 'services:list-barbers' %}"><i class="fas fa-edit me-2"></i>Manage Barbers</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'services:list-barbers' %}?manage=1">
+                                <i class="fas fa-edit me-2"></i>Manage Barbers
+                            </a>
+                        </li>
                         <li><a class="dropdown-item text-success-bright" href="{% url 'services:create-barber' %}"><i class="fas fa-plus-circle me-2"></i>Add Barber</a></li>
 
                         <li><hr class="dropdown-divider"></li>
 
                         <li><h6 class="dropdown-header">Services Management</h6></li>
-                        <li><a class="dropdown-item" href="{% url 'services:list-services' %}"><i class="fas fa-tasks me-2"></i>Manage Services</a></li>
+
+                        <li><a class="dropdown-item" href="{% url 'services:list-services' %}?manage=1">
+                            <i class="fas fa-tasks me-2"></i>Manage Services</a>
+                        </li>
+
                         <li><a class="dropdown-item text-success-bright" href="{% url 'services:create-service' %}"><i class="fas fa-plus-circle me-2"></i>Add Service</a></li>
                     </ul>
                 </li>

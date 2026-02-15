@@ -34,10 +34,26 @@
                             </span>
                         </div>
 
-                        <div class="d-grid px-5"> <a href="{% url 'services:service-details' service.slug %}"
-                               class="btn btn-sm btn-outline-light rounded-0 fw-bold text-uppercase py-2">
-                                Details
-                            </a>
+                        <div class="mt-auto">
+                            <div class="d-grid mb-2">
+                                <a href="{% url 'services:service-details' service.slug %}"
+                                   class="btn btn-outline-light rounded-0 text-uppercase fw-bold py-2">
+                                    Details
+                                </a>
+                            </div>
+
+                            {% if request.GET.manage == '1' %}
+                                <div class="d-flex gap-2 justify-content-center">
+                                    <a href="{% url 'services:edit-service' service.slug %}"
+                                       class="btn btn-outline-warning btn-sm rounded-0 text-uppercase flex-grow-1 shadow-sm">
+                                        <i class="fas fa-edit me-1"></i> EDIT
+                                    </a>
+                                    <a href="{% url 'services:delete-service' service.slug %}"
+                                       class="btn btn-outline-danger btn-sm rounded-0 text-uppercase flex-grow-1 shadow-sm">
+                                        <i class="fas fa-trash me-1"></i> DELETE
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
 
                     </div>

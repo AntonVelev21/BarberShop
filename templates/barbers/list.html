@@ -42,11 +42,26 @@
                             {{ barber.bio|default:"Professional barber at Blade & Gold."|truncatechars:100 }}
                         </p>
 
-                        <div class="d-grid">
-                            <a href="{% url 'services:barber-details' barber.slug %}"
-                               class="btn btn-outline-warning rounded-0 text-uppercase fw-bold py-2">
-                                View Profile
-                            </a>
+                        <div class="mt-auto">
+                            <div class="d-grid mb-2">
+                                <a href="{% url 'services:barber-details' barber.slug %}"
+                                   class="btn btn-warning rounded-0 text-uppercase fw-bold py-2">
+                                    View Profile
+                                </a>
+                            </div>
+
+                            {% if request.GET.manage == '1' %}
+                                <div class="d-flex gap-2 justify-content-center">
+                                    <a href="{% url 'services:edit-barber' barber.slug %}"
+                                       class="btn btn-outline-warning btn-sm rounded-0 text-uppercase flex-grow-1 shadow-sm">
+                                        <i class="fas fa-edit me-1"></i> EDIT
+                                    </a>
+                                    <a href="{% url 'services:delete-barber' barber.slug %}"
+                                       class="btn btn-outline-danger btn-sm rounded-0 text-uppercase flex-grow-1 shadow-sm">
+                                        <i class="fas fa-trash me-1"></i> DELETE
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
