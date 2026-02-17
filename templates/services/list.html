@@ -1,26 +1,21 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-<div class="container py-5" style="min-height: 80vh;">
+<div class="container py-5 min-vh-80">
 
     <div class="text-center mb-5">
         <h1 class="display-3 fw-bold text-uppercase text-white">
             Services
         </h1>
-        <div class="bg-warning mx-auto mt-3" style="height: 2px; width: 60px;"></div>
+        <div class="bg-warning mx-auto mt-3 blade-title-divider"></div>
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
 
         {% for service in services %}
             <div class="col">
-                <div class="card h-100 border-0 rounded-0 text-white shadow"
-                     style="
-                        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0) 100%),
-                                    url('{% if service.image_url %}{{ service.image_url }}{% else %}https://via.placeholder.com/500x500/261C19/FFFFFF?text=No+Image{% endif %}');
-                        background-size: cover;
-                        background-position: center;
-                        min-height: 400px;">
+                <div class="card h-100 border-0 rounded-0 text-white shadow service-card-item"
+                     style="--bg-image: url('{% if service.image_url %}{{ service.image_url }}{% else %}https://via.placeholder.com/500x500/261C19/FFFFFF?text=No+Image{% endif %}');">
 
                     <div class="card-body p-4 d-flex flex-column justify-content-end text-center">
 

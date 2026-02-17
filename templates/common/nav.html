@@ -1,7 +1,7 @@
 {% load static %}
 <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg py-3">
     <div class="container">
-        <a href="{% url 'home-page' %}" class="navbar-brand text-warning fw-bolder text-uppercase lh-1" style="letter-spacing: 2px;">
+        <a href="{% url 'home-page' %}" class="navbar-brand text-warning fw-bolder text-uppercase lh-1 ls-2">
             <span class="fs-4">✂️ BLADE & GOLD</span>
         </a>
 
@@ -44,6 +44,13 @@
                         </li>
 
                         <li><a class="dropdown-item text-success-bright" href="{% url 'services:create-service' %}"><i class="fas fa-plus-circle me-2"></i>Add Service</a></li>
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="px-2 pb-2">
+                            <a href="{% url 'bookings:list' %}" class="btn btn-dark btn-sm w-100 shadow-sm fw-bold text-uppercase d-flex justify-content-center align-items-center text-warning blade-btn-res ls-1">
+                                <i class="fas fa-calendar-check me-2"></i> List Reservations
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
