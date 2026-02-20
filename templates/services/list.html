@@ -14,7 +14,7 @@
 
         {% for service in services %}
             <div class="col">
-                <div class="card h-100 border-0 rounded-0 text-white shadow service-card-item"
+                <div class="card h-100 border-0 rounded-0 text-white shadow service-card-item transition-hover"
                      style="--bg-image: url('{% if service.image_url %}{{ service.image_url }}{% else %}https://via.placeholder.com/500x500/261C19/FFFFFF?text=No+Image{% endif %}');">
 
                     <div class="card-body p-4 d-flex flex-column justify-content-end text-center">

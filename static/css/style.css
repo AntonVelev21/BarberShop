@@ -99,3 +99,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
 .blade-btn-res { font-size: 0.85rem; }
 .text-success-bright { color: #2ecc71 !important; }
 .text-success-bright:hover { color: #ffffff !important; background-color: rgba(46, 204, 113, 0.2); }
+
+.generic-form-wrapper {
+    max-width: 600px;
+    width: 100%;
+}

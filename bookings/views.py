@@ -24,11 +24,22 @@ def create_booking(request: HttpRequest) -> HttpResponse:
         'form': form
     }
 
-    return render(request, 'bookings/create.html', context)
+    return render(request, 'bookings/form.html', context)
 
 
 def edit_booking(request: HttpRequest, pk: int) -> HttpResponse:
-    ...
+    booking = Booking.objects.get(id=pk)
+    form = BookingCreateForm(request.POST or None, instance=booking)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home-page')
+    context = {
+        'form': form,
+        'booking': booking
+    }
+
+    return render(request, 'bookings/form.html', context)
 
 
 def delete_booking(request: HttpRequest, pk: int) -> HttpResponse:
