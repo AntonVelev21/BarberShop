@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.http.request import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 
-from services.forms import BarberCreateForm, ServiceCreateForm
+from services.forms import BarberCreateForm, ServiceCreateForm, BarberDeleteForm, BarberEditForm, ServiceEditForm, \
+    ServiceDeleteForm
 from services.models import Barber, Service
 
 
@@ -38,7 +39,7 @@ def create_barber(request: HttpRequest) -> HttpResponse:
 
 def edit_barber(request: HttpRequest, slug: str) -> HttpResponse:
     barber = Barber.objects.get(slug=slug)
-    form = BarberCreateForm(request.POST or None, instance=barber)
+    form = BarberEditForm(request.POST or None, instance=barber)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -52,7 +53,17 @@ def edit_barber(request: HttpRequest, slug: str) -> HttpResponse:
 
 
 def delete_barber(request: HttpRequest, slug: str) -> HttpResponse:
-    ...
+    barber = get_object_or_404(Barber, slug=slug)
+    form = BarberDeleteForm(request.POST or None, instance=barber)
+    if request.method == 'POST':
+        barber.delete()
+        return redirect('home-page')
+    context = {
+        'form': form,
+        'barber': barber
+    }
+
+    return render(request, 'barbers/delete.html', context)
 
 
 def list_services(request: HttpRequest) -> HttpResponse:
@@ -86,7 +97,7 @@ def create_service(request: HttpRequest) -> HttpResponse:
 
 def edit_service(request: HttpRequest, slug: str) -> HttpResponse:
     service = Service.objects.get(slug=slug)
-    form = ServiceCreateForm(request.POST or None, instance=service)
+    form = ServiceEditForm(request.POST or None, instance=service)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -99,4 +110,14 @@ def edit_service(request: HttpRequest, slug: str) -> HttpResponse:
 
 
 def delete_service(request: HttpRequest, slug: str) -> HttpResponse:
-    ...
+    service = get_object_or_404(Service, slug=slug)
+    form = ServiceDeleteForm(request.POST or None, instance=service)
+    if request.method == 'POST':
+        service.delete()
+        return redirect('home-page')
+    context = {
+        'form': form,
+        'service': service
+    }
+
+    return render(request, 'services/delete.html', context)

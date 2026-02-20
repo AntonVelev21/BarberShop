@@ -17,7 +17,10 @@ class BarberEditForm(BaseBarberForm):
 
 
 class BarberDeleteForm(BaseBarberForm):
-    ...
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['disabled'] = True
 
 
 class BaseServiceForm(ModelForm):
@@ -35,4 +38,7 @@ class ServiceEditForm(BaseServiceForm):
 
 
 class ServiceDeleteForm(BaseServiceForm):
-    ...
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['disabled'] = True

@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.http.request import HttpRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
-from bookings.forms import BookingCreateForm
+from bookings.forms import BookingCreateForm, BookingDeleteForm
 from bookings.models import Booking
 
 
@@ -43,4 +43,14 @@ def edit_booking(request: HttpRequest, pk: int) -> HttpResponse:
 
 
 def delete_booking(request: HttpRequest, pk: int) -> HttpResponse:
-    ...
+    booking = get_object_or_404(Booking, id=pk)
+    form = BookingDeleteForm(request.POST or None, instance=booking)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('home-page')
+    context = {
+        'form': form,
+        'booking': booking
+    }
+
+    return render(request, 'bookings/delete.html', context)
