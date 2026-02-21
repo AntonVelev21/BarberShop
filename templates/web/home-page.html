@@ -19,7 +19,9 @@
 
 <div class="container mb-5">
     <h4 class="text-center text-uppercase fw-bold mb-3 text-white opacity-75 ls-2">
-        Our Top Barbers
+        {% if top_three_barbers %}
+            Our Top Barbers
+        {% endif %}
     </h4>
     <hr class="border-warning border-2 opacity-50 w-25 mx-auto mb-4">
 

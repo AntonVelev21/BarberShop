@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from bookings.forms import BookingCreateForm, BookingDeleteForm
 from bookings.models import Booking
+from services.models import Barber
 
 
 def list_bookings(request: HttpRequest) -> HttpResponse:
@@ -15,11 +16,17 @@ def list_bookings(request: HttpRequest) -> HttpResponse:
 
 
 def create_booking(request: HttpRequest) -> HttpResponse:
-    form = BookingCreateForm(request.POST or None)
+    barber_id = request.GET.get('barber')
+    initial_data = {}
+    if barber_id:
+        barber = get_object_or_404(Barber, id=barber_id)
+        initial_data['barber'] = barber.id
     if request.method == 'POST':
+        form = BookingCreateForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home-page')
+    form = BookingCreateForm(initial=initial_data)
     context = {
         'form': form
     }
@@ -28,7 +35,7 @@ def create_booking(request: HttpRequest) -> HttpResponse:
 
 
 def edit_booking(request: HttpRequest, pk: int) -> HttpResponse:
-    booking = Booking.objects.get(id=pk)
+    booking = get_object_or_404(Booking, id=pk)
     form = BookingCreateForm(request.POST or None, instance=booking)
     if request.method == 'POST':
         if form.is_valid():

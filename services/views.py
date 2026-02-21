@@ -38,7 +38,7 @@ def create_barber(request: HttpRequest) -> HttpResponse:
 
 
 def edit_barber(request: HttpRequest, slug: str) -> HttpResponse:
-    barber = Barber.objects.get(slug=slug)
+    barber = get_object_or_404(Barber, slug=slug)
     form = BarberEditForm(request.POST or None, instance=barber)
     if request.method == 'POST':
         if form.is_valid():
@@ -96,7 +96,7 @@ def create_service(request: HttpRequest) -> HttpResponse:
 
 
 def edit_service(request: HttpRequest, slug: str) -> HttpResponse:
-    service = Service.objects.get(slug=slug)
+    service = get_object_or_404(Service, slug=slug)
     form = ServiceEditForm(request.POST or None, instance=service)
     if request.method == 'POST':
         if form.is_valid():

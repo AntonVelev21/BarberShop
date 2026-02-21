@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.deletion import SET_NULL
 
-
 class Booking(models.Model):
     client_name = models.CharField(max_length=50)
     client_phone = models.CharField(max_length=20)

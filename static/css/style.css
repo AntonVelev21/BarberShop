@@ -131,3 +131,37 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
     font-size: 0.7rem;
     letter-spacing: 1px;
 }
+
+.error-code-title {
+    font-size: 10rem;
+    line-height: 1;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+    letter-spacing: -5px;
+}
+
+
+.error-scissors-icon {
+    display: inline-block;
+    animation: snipSnip 2.5s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes snipSnip {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-20deg); }
+    20% { transform: rotate(10deg); }
+    30% { transform: rotate(-20deg); }
+    40% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .error-code-title {
+        font-size: 6rem;
+    }
+}

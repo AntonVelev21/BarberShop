@@ -54,7 +54,7 @@
                     </p>
 
                     <div class="d-grid">
-                        <a href="#" class="btn btn-warning rounded-0 py-3 fw-bold text-dark text-uppercase">
+                        <a href="{% url 'bookings:create' %}?barber={{ barber.id }}" class="btn btn-warning rounded-0 py-3 fw-bold text-dark text-uppercase">
                             Book with {{ barber.first_name }}
                         </a>
                     </div>
