@@ -1,5 +1,5 @@
+from django.core.exceptions import ValidationError
 from django.forms.models import ModelForm
-from django import forms
 from bookings.models import Booking
 
 
@@ -15,6 +15,12 @@ class BaseBookingForm(ModelForm):
             field.widget.attrs['style'] = 'padding: 12px;'
             if field_name == 'date_and_hour':
                 field.widget.input_type = 'datetime-local'
+
+    def clean_client_name(self):
+        entered_name = self.cleaned_data.get('client_name')
+        if ' ' not in entered_name:
+            raise ValidationError('Please enter second name!')
+        return entered_name
 
 
 class BookingCreateForm(BaseBookingForm):

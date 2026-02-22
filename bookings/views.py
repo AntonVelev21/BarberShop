@@ -26,7 +26,8 @@ def create_booking(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             form.save()
             return redirect('home-page')
-    form = BookingCreateForm(initial=initial_data)
+    else:
+        form = BookingCreateForm(initial=initial_data)
     context = {
         'form': form
     }

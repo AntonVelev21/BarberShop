@@ -14,5 +14,3 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, 'web/home-page.html', context)
 
 
-def about(request: HttpRequest) -> HttpResponse:
-    return render(request, 'web/about.html')
