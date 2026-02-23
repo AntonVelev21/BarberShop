@@ -42,9 +42,10 @@ Serves to manage general pages that are not strictly tied to services or booking
 - **Views:** Home page.
 
 ## 3. Templates and Design (Templates & Static)
-- **`templates/`**: Based on the Django Template Language. The architecture likely follows the principle of template inheritance (e.g., using a `base.html`) to avoid repeating headers and footers across different pages.
-- **`static/css/`**: Contains custom styles for the application. The design should be responsive to work well on both desktop and mobile devices.
-
+- **Templates**: I used Django’s template inheritance. I have a `base.html` file with the navbar and footer, and the other pages just plug into it. This keeps the code clean and easy to change.
+- **Bootstrap 5**: I used Bootstrap to make sure the site looks good on both phones and computers without having to write everything from scratch.
+- **Custom Styles**: All the extra styling I did is in the `static/css/` folder to give the shop its own unique look.
+- **AI Assistance**: I used AI to help me figure out the best layouts and to speed up writing the CSS.
 ## 4. Dependencies
 All required Python packages are listed in the `requirements.txt` file. The primary dependency is `Django`. To ensure compatibility and avoid conflicts, it is highly recommended to run the project in an isolated virtual environment (`venv`).
 

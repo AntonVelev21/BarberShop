@@ -11,6 +11,7 @@ BarberShop is a web application built with Python (Django), designed for managin
 ## 🛠 Technologies Used
 - **Back-end:** Python, Django
 - **Front-end:** HTML5, CSS3, Django Templates
+- **AI Tools:** Utilized for UI/UX inspiration and template optimization.
 - **Database:** SQLite (default for Django)
 
 ## 📁 Project Structure
