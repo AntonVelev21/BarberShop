@@ -4,8 +4,11 @@
 BarberShop is a monolithic web application developed using the Django framework. Its primary goal is to digitize the appointment booking process in a barber shop, streamlining communication between clients and service providers.
 
 ## 2. Architecture (Django Apps)
-The project is divided into several logical components (applications):
 
+### 2.1 Database Schema (ERD)
+![Entity Relationship Diagram](screenshots/database_erd.png)
+
+The project is divided into several logical components (applications):
 ### 2.1. `bookings`
 This application handles the core business logic for managing appointments.
 It provides full CRUD functionality for bookings and allows staff members to view and manage bookings through a dedicated dropdown menu.

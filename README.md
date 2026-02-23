@@ -1,7 +1,7 @@
 # BarberShop ✂️
-
+![Homepage Screenshot](screenshots/homepage.png)
 BarberShop is a web application built with Python (Django), designed for managing and scheduling barber shop appointments. The application allows users to browse offered services and conveniently book their appointments, while allowing owners to manage their schedules.
-
+[📖 View Full Project Documentation here](./DOCUMENTATION.md)
 ## 🚀 Features
 - **Service Overview:** A list of offered services (e.g., haircuts, beard trimming, etc.).
 - **Bookings:** An appointment scheduling system for clients.
